@@ -8,9 +8,11 @@ export const getCryptoMarket = async ()=>{
        if(!Array.isArray(data))throw new Error("Data is not an array");
         return data.map((c)=>(
             {id:c.id,
-             price:c.price,
-             quantity:c.quantity,
-             priceChange24h:c.price_change_24h
+            symbol:c.symbol,
+            name:c.name,
+            currentPrice:c.current_price,
+            priceChange24h:c.price_change_percentage_24h,
+            quantity:0
             }
         ))
     }catch(err:any){

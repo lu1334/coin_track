@@ -1,19 +1,20 @@
 import { useCryptoContext } from "../context/CryptoContex";
+import type { CryptoData } from "../types/types";
+export const HomeCard = ({ coin }: { coin: CryptoData }) => {
+  const { cryptoList,handlerBuyCoin } = useCryptoContext();
+  if (!cryptoList.length) return <p> No data available</p>;
 
-export const HomeCard = ()=>{
-    const {cryptoList} = useCryptoContext()
-    if(!cryptoList.length)return <p> No data available</p>
-
-    return(
-        <>
-        {cryptoList.map((c)=>(
-            <div key={c.id} className="card">
-                <h2>{c.id}</h2>
-                <p>Price: ${c.price}</p>
-                <p>Quantity: {c.quantity}</p>
-                <p>24h Change: {c.priceChange24h}%</p>
-            </div>
-        ))}
-        </>
-    )
-}
+  return (
+    <>
+      <div>
+        <h2>
+          {coin.name} ({coin.symbol.toUpperCase()})
+        </h2>
+        <p>Current Price: ${coin.currentPrice.toFixed(2)}</p>
+        <p>24h Change: {coin.priceChange24h.toFixed(2)}%</p>
+        <p>Quantity: {coin.quantity}</p>
+        <button onClick={()=>handlerBuyCoin(coin.id)}>Buy</button>
+      </div>
+    </>
+  );
+};

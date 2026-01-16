@@ -1,14 +1,18 @@
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import { Home } from "./pages/Home";
+import { Portafolio } from "./pages/portafolio";
+import { NavBar } from "./pages/NavBar";
 
-import './App.css'
-import { Home } from './pages/Home'
 function App() {
- 
-
   return (
-    <>
-      <Home/>
-    </>
-  )
+    <Routes>
+      <Route path="home" element={<Home/>} />
+      <Route path="/" element={<NavBar/>}>
+        <Route path="purchased" element={<Portafolio/>} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;

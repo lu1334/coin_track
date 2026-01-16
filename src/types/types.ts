@@ -1,13 +1,19 @@
 export interface CryptoData {
-  id: string;
-  price: number;
-  quantity: number;
-  priceChange24h: number;
+    id: string;
+   symbol: string;
+   name:string;
+   currentPrice:number;
+   priceChange24h:number;
+   quantity:number;
 }
 
 export interface CryptoMarket {
+
   id: string;
-  price: number;
-  quantity: number;
-  price_change_24h: number;
+  symbol: string;
+  name: string;
+  image: string;
+  current_price: number; 
+  price_change_percentage_24h: number;
+  quantity: number; 
 }
