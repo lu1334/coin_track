@@ -1,5 +1,6 @@
 import { url_base } from "./getUrl";
 import type { CryptoMarket} from "../types/types";
+
 export const getCryptoMarket = async ()=>{
     try{
         const response = await fetch(`${url_base}`)

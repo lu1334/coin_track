@@ -16,7 +16,13 @@ export const Home = () => {
       try {
         const res = await getCryptoMarket();
         if (!res) throw new Error("No data found");
-        setCryptoList(res);
+        const merge = res.map((coinFromRes)=>{
+            const customerData = cryptoList.find(cd=>coinFromRes.id===cd.id)
+            return{
+                ...coinFromRes,quantity:customerData?customerData.quantity:0
+            }
+        })
+        setCryptoList(merge)
       } catch (err: any) {
         setErrorHome(err.message);
         return [];
