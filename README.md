@@ -1,6 +1,6 @@
 # Coin Track
 
-App web para seguir criptomonedas, ver precios en tiempo real y gestionar un portafolio con compras/ventas simuladas.
+<App web para seguir criptomonedas, ver precios en tiempo real y gestionar un portafolio con compras/ventas simuladas.>
 
 ## Demo
 
