@@ -1,13 +1,16 @@
+/* Layout base de las paginas */
 .page {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Animacion de entrada para Home */
 .home {
   animation: page-in 600ms ease;
 }
 
+/* Contenedor del buscador */
 .home-toolbar {
   display: flex;
   align-items: center;
@@ -20,6 +23,7 @@
   backdrop-filter: blur(8px);
 }
 
+/* Input de busqueda */
 .coin-search {
   width: 100%;
   border-radius: 12px;
@@ -32,18 +36,21 @@
   transition: border-color 200ms ease, box-shadow 200ms ease;
 }
 
+/* Estado enfocado del input */
 .coin-search:focus {
   outline: none;
   border-color: rgba(37, 99, 235, 0.5);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
+/* Contenedor del menu y contenido */
 .nav-shell {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
+/* Barra de navegacion */
 .nav {
   list-style: none;
   display: flex;
@@ -57,6 +64,7 @@
   width: fit-content;
 }
 
+/* Links del menu */
 .nav-link {
   display: inline-flex;
   align-items: center;
@@ -70,18 +78,21 @@
   transition: transform 200ms ease, border-color 200ms ease, color 200ms ease;
 }
 
+/* Hover de links */
 .nav-link:hover {
   color: var(--accent);
   border-color: rgba(37, 99, 235, 0.3);
   transform: translateY(-1px);
 }
 
+/* Zona donde se renderiza el contenido */
 .nav-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* Grid de tarjetas */
 .coin-list {
   list-style: none;
   display: grid;
@@ -91,10 +102,12 @@
   margin: 0;
 }
 
+/* Wrapper de cada tarjeta */
 .coin-item {
   display: flex;
 }
 
+/* Tarjeta principal de moneda */
 .coin-card {
   width: 100%;
   padding: 18px;
@@ -108,6 +121,7 @@
   animation: card-in 640ms ease;
 }
 
+/* Tarjeta destacada para la moneda reina */
 .coin-card__gold {
    width: 100%;
   padding: 18px;
@@ -121,31 +135,37 @@
   animation: card-in 640ms ease;
 }
 
+/* Titulo de la moneda */
 .coin-title {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--ink);
 }
 
+/* Precio con tipografia monoespaciada */
 .coin-price {
   font-family: "JetBrains Mono", "SFMono-Regular", monospace;
   color: var(--ink);
 }
 
+/* Variacion de 24h */
 .coin-change {
   font-weight: 600;
 }
 
+/* Cantidad del usuario */
 .coin-qty {
   color: var(--muted);
 }
 
+/* Acciones de compra/venta */
 .coin-actions {
   display: flex;
   gap: 10px;
   margin-top: 6px;
 }
 
+/* Botones base */
 .btn {
   border-radius: 12px;
   padding: 8px 14px;
@@ -155,38 +175,45 @@
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
+/* Boton principal */
 .btn.primary {
   background: linear-gradient(135deg, #2563eb, #0ea5e9);
   color: #ffffff;
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
 }
 
+/* Boton secundario */
 .btn.ghost {
   background: #ffffff;
   border-color: rgba(15, 23, 42, 0.1);
   color: var(--ink);
 }
 
+/* Hover para botones */
 .btn:hover {
   transform: translateY(-1px);
 }
 
+/* Espaciado del portafolio */
 .portfolio {
   gap: 24px;
 }
 
+/* Grid de compras */
 .portfolio-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
 
+/* Grid de estadisticas */
 .portfolio-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
+/* Tarjeta de estadistica */
 .stat-card {
   padding: 16px 18px;
   border-radius: 16px;
@@ -197,6 +224,7 @@
   color: var(--ink);
 }
 
+/* Estado vacio */
 .empty-state {
   padding: 16px 18px;
   border-radius: 14px;
@@ -205,6 +233,7 @@
   color: var(--muted);
 }
 
+/* Animacion de cards */
 @keyframes card-in {
   from {
     opacity: 0;
@@ -216,6 +245,7 @@
   }
 }
 
+/* Animacion general de pagina */
 @keyframes page-in {
   from {
     opacity: 0;
@@ -227,6 +257,7 @@
   }
 }
 
+/* Ajustes para mobile */
 @media (max-width: 720px) {
   #root {
     padding: 24px 16px 64px;

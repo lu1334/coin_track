@@ -1,5 +1,7 @@
+/* Tipografias principales */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap");
 
+/* Variables globales y base tipografica */
 :root {
   font-family: "Space Grotesk", "Segoe UI", "Trebuchet MS", sans-serif;
   line-height: 1.5;
@@ -23,10 +25,12 @@
   --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
 }
 
+/* Reseteo basico de caja */
 * {
   box-sizing: border-box;
 }
 
+/* Fondo y textura global */
 body {
   margin: 0;
   min-width: 320px;
@@ -40,31 +44,37 @@ body {
     linear-gradient(120deg, #f9fbff 0%, #eef4ff 45%, #fff2e1 100%);
 }
 
+/* Contenedor principal */
 #root {
   max-width: 1120px;
   margin: 0 auto;
   padding: 32px 20px 72px;
 }
 
+/* Enlaces base */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Hover de enlaces */
 a:hover {
   color: var(--accent);
 }
 
+/* Heredar tipografia en inputs y botones */
 button,
 input {
   font-family: inherit;
 }
 
+/* Parrafos base */
 p {
   margin: 0;
   color: var(--muted);
 }
 
+/* Titulares */
 h1,
 h2,
 h3 {
@@ -73,6 +83,7 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+/* Imagenes responsivas */
 img,
 svg {
   max-width: 100%;
