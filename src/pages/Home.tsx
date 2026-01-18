@@ -3,12 +3,13 @@ import { getCryptoMarket } from "../services/getCryptoMarket";
 import { useCryptoContext } from "../context/CryptoContex";
 import { HomeCard } from "./HomeCard";
 import { NavBar } from "./NavBar";
-
+import type{ ChangeEvent } from "react";
 export const Home = () => {
   const { cryptoList, setCryptoList } = useCryptoContext();
 
   const [errorHome, setErrorHome] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [coinSearch,setCoinsearch] = useState("")
 
   useEffect(() => {
     setLoading(true);
@@ -32,19 +33,26 @@ export const Home = () => {
     };
     getCryptoData();
   }, []);
+
+  const handlerOnchange = (e:ChangeEvent<HTMLInputElement>)=>setCoinsearch(e.target.value)
+  const searchCoin = cryptoList.filter(f=>f.name.trim().toLocaleLowerCase().includes(coinSearch.trim().toLocaleLowerCase()))
   
   return (
-    <>
+    <div className="page home">
+     
       {loading && <p>Loading...</p>}
       {errorHome && <p>{errorHome}</p>}
+      <div className="home-toolbar">
+        <input className="coin-search" type="text" value={coinSearch} onChange={handlerOnchange}/>
+      </div>
       <NavBar/>
-      <ul>
-        {cryptoList.map((c) => (
-          <li key={c.id}>
+      <ul className="coin-list">
+        {searchCoin.map((c) => (
+          <li className="coin-item" key={c.id}>
             <HomeCard coin={c} />
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };

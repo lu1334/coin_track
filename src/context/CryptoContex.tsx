@@ -5,6 +5,8 @@ interface CryptoInterface {
   cryptoList: CryptoData[];
   setCryptoList: (list: CryptoData[]) => void;
   handlerBuyCoin: (id: string) => void;
+  handlerSellCoin:(c:CryptoData)=> void
+ 
 }
 
 const CryptoContext = createContext<CryptoInterface | undefined>(undefined);
@@ -26,11 +28,19 @@ export const CryptoProvider = ({ children }: { children: React.ReactNode }) => {
         return c.id === id ? { ...c, quantity: c.quantity + 1 } : c;
       })
     );
+   
   };
+
+  const handlerSellCoin = (coin:CryptoData)=>{
+      
+      setCryptoList((prev)=> prev.map((c)=>{//si la cantidad es <= 0 dejamos 0 sino restamos 1
+        return c.id === coin.id ? {...c,quantity:c.quantity <=0?0:c.quantity-1}:c
+      }))
+  }
 
   return (
     <CryptoContext
-      value={{ cryptoList, setCryptoList, handlerBuyCoin}}
+      value={{ cryptoList, setCryptoList, handlerBuyCoin,handlerSellCoin}}
     >
       {children}
     </CryptoContext>

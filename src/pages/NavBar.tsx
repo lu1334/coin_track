@@ -3,11 +3,15 @@ import { Link,Outlet } from "react-router-dom";
 export const NavBar = ()=>{
     return (
         <>
-        <ul>
-            <li><Link to={"/home"}>Home</Link></li>
-            <li><Link to={"/purchased"}>My purchased</Link></li>
-        </ul>
-        <Outlet/>
+        <div className="nav-shell">
+            <ul className="nav">
+                <li><Link className="nav-link" to={"/home"}>Home</Link></li>
+                <li><Link className="nav-link" to={"/purchased"}>My purchased</Link></li>
+            </ul>
+            <div className="nav-content">
+                <Outlet/>
+            </div>
+        </div>
         </>
     )
 }
